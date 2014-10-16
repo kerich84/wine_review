@@ -7,4 +7,6 @@ class Wine < ActiveRecord::Base
    		unless: "year.blank?"
 	validates :varietal, inclusion: { in: VARIETALS, message: "Not a valid varietal!" },
     	unless: "varietal.blank?"
+
+    has_many :logentries, dependent: :destroy
 end
