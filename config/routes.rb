@@ -1,4 +1,5 @@
 WineReview::Application.routes.draw do
+  resources :logentries
   
   resources :wines do
     resources :logentries

@@ -8,11 +8,20 @@
 	<p><label>Winery:</label> <%= @wine.winery %></p>
 	<p><label>Varietal:</label> <%= @wine.varietal %></p>
 </article>
-
-<%= link_to 'All Wines', wines_path %>
-| <%= link_to 'Edit', edit_wine_path(@wine) %>
-<%= button_to "Delete '#{@wine.name}'", 
-	@wine, method: :delete, data: {confirm: 'Are you sure?'} %>
+<table>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_wine_path(@wine) %>
+		</td>
+		<td style="padding-left: 5px;">
+			|
+		</td>
+		<td style="padding-left: 10px;">
+			<%= button_to "Delete '#{@wine.name}'", 
+				@wine, method: :delete, data: {confirm: 'Are you sure?'} %>
+		</td>
+	</tr>
+</table></br>
 <p>
   Read all
   <%= link_to pluralize(@wine.logentries.size, 'Log Entry'), 

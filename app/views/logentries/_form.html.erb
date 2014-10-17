@@ -6,13 +6,13 @@
   <%= f.label :location %>
   <%= f.text_field :location, autofocus: true, placeholder: 'Location' %><br />
   <%= f.label :tasted_on %>
-  <%= f.date_select :tasted_on, autofocus: true, placeholder: 'Date' %><br />
+  <%= f.date_select :tasted_on %><br />
   <%= f.label :raiting %>  
-  <% LogEntry::STARS.each do |raiting| %>
-    <%= f.radio_button :raiting, star %> <%= raiting %>
+  <% Logentry::STARS.each do |raiting| %>
+    <%= f.radio_button :raiting, raiting %> <%= raiting %>
   <% end %><br />
   <%= f.label :comments %><br/>
-  <%= f.text_area :comment %><br/>
+  <%= f.text_area :comments %><br/>
   <p>
     <%= f.submit %>
     <%= link_to 'Cancel', wine_logentries_path(@wine), id: 'cancel_logentry' %>

@@ -1,9 +1,9 @@
 class LogentriesController < ApplicationController
 
 	before_action :set_wine
-
+	
 	def index
-  		@logentries = @wine.logentries.order('tasted_on desc')
+  		@logentries = @wine.logentries.order('created_at desc')
 	end
 
 	def new
@@ -24,7 +24,7 @@ private
 	def set_wine
   		@wine = Wine.find(params[:wine_id])
 	end
-
+	
 	def logentry_params
   		params.require(:logentry).permit(:raiting, :location, :comments, :name, :tasted_on)
 	end
